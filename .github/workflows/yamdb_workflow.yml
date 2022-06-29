@@ -63,5 +63,5 @@ jobs:
           cd ~/yamdb_final
           git pull
           cd infra
-          sudo docker-compose stop
-          sudo docker-compose up build
+          docker-compose stop
+          docker-compose up build
