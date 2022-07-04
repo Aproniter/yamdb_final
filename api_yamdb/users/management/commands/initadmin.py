@@ -18,7 +18,7 @@ class Command(BaseCommand):
                 password=password
             )
             admin.is_active = True
-            admin.is_admin = True
+            admin.role = 'admin'
             admin.save()
         else:
             print(
