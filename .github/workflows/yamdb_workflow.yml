@@ -68,9 +68,10 @@ jobs:
           cd ~/yamdb_final
           git pull
           cd infra
-          docker-compose stop
+          docker stop $(docker ps -a -q)
+          docker rm $(docker ps -a -q)
           docker-compose up -d --build
-          docker exec infra_web_1 python manage.py makemigrations users
-          docker exec infra_web_1 python manage.py makemigrations reviews
-          docker exec infra_web_1 python manage.py migrate
-          docker exec infra_web_1 python manage.py collectstatic --noinput
+          docker exec infra_web python manage.py makemigrations users
+          docker exec infra_web python manage.py makemigrations reviews
+          docker exec infra_web python manage.py migrate
+          docker exec infra_web python manage.py collectstatic --noinput
