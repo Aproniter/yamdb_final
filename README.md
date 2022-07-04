@@ -1,7 +1,7 @@
 # yamdb_final
 yamdb_final
 
-![example workflow](https://github.com/Aproniter/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+[![CI](https://github.com/Aproniter/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)](https://github.com/Aproniter/yamdb_final/actions/workflows/yamdb_workflow.yml)
 
 <h1 align="center">YaMDB API</h1>
 
