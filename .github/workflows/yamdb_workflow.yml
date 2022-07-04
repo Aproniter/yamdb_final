@@ -68,5 +68,5 @@ jobs:
           docker exec infra_web_1 python manage.py makemigrations users
           docker exec infra_web_1 python manage.py makemigrations reviews
           docker exec infra_web_1 python manage.py migrate
-          docker exec infra_web_1 python manage.py shell -c "python manage.py shell -c "from users.models import User; User.objects.create_superuser('${{ secrets.DJANGO_SUPERUSER_USERNAME }}', '${{ secrets.DJANGO_SUPERUSER_EMAIL }}', '${{ secrets.DJANGO_SUPERUSER_PASSWORD }}')"
+          docker exec infra_web_1 python manage.py shell -c "from users.models import User; User.objects.create_superuser('${{ secrets.DJANGO_SUPERUSER_USERNAME }}', '${{ secrets.DJANGO_SUPERUSER_EMAIL }}', '${{ secrets.DJANGO_SUPERUSER_PASSWORD }}')"
           docker exec infra_web_1 python manage.py collectstatic
