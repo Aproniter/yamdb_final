@@ -70,8 +70,11 @@ jobs:
           cd infra
           docker stop $(docker ps -a -q)
           docker rm $(docker ps -a -q)
+          docker rmi $(docker images -a -q)
           docker-compose up -d --build
           docker exec infra_web python manage.py makemigrations users --noinput
           docker exec infra_web python manage.py makemigrations reviews --noinput
           docker exec infra_web python manage.py migrate --noinput
           docker exec infra_web python manage.py collectstatic --noinput
+          docker exec infra_web python manage.py initadmin --noinput
+
