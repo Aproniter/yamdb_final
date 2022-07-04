@@ -9,7 +9,7 @@ on:
       - master 
   workflow_dispatch:  
 jobs:
-  tests:
+  pytest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -70,10 +70,9 @@ jobs:
           cd ~/yamdb_final
           git pull
           cd infra
-          docker stop $(docker ps -a -q)
-          docker rm $(docker ps -a -q)
-          docker rmi $(docker images -a -q)
-          docker-compose up -d --build
+          docker-compose stop
+          docker-compose rm infra_web          
+          docker-compose up -d
           docker exec infra_web python manage.py makemigrations users --noinput
           docker exec infra_web python manage.py makemigrations reviews --noinput
           docker exec infra_web python manage.py migrate --noinput
