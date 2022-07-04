@@ -64,4 +64,4 @@ jobs:
           git pull
           cd infra
           docker-compose stop
-          docker-compose up build
+          docker-compose up -build
