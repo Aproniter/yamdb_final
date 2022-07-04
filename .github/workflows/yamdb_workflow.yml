@@ -64,4 +64,7 @@ jobs:
           git pull
           cd infra
           docker-compose stop
-          docker-compose up -build
+          docker-compose -d --force-recreate
+          sudo docker exec -it infra_web_1 python manage.py makemigrations users
+          sudo docker exec -it infra_web_1 python manage.py makemigrations reviews
+          sudo docker exec -it infra_web_1 python manage.py migrate
