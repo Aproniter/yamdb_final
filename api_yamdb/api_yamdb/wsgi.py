@@ -10,7 +10,7 @@ application = get_wsgi_application()
 
 users = get_object_or_404(
     User, username=os.getenv('DJANGO_SUPERUSER_USERNAME')
-    )
+)
 
 if not users:
     User.objects.create_superuser(
