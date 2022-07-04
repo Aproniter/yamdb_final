@@ -71,7 +71,7 @@ jobs:
           docker stop $(docker ps -a -q)
           docker rm $(docker ps -a -q)
           docker-compose up -d --build
-          docker exec infra_web python manage.py makemigrations users
-          docker exec infra_web python manage.py makemigrations reviews
-          docker exec infra_web python manage.py migrate
+          docker exec infra_web python manage.py makemigrations users --noinput
+          docker exec infra_web python manage.py makemigrations reviews --noinput
+          docker exec infra_web python manage.py migrate --noinput
           docker exec infra_web python manage.py collectstatic --noinput
