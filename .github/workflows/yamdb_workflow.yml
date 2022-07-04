@@ -73,4 +73,4 @@ jobs:
           docker exec infra_web_1 python manage.py makemigrations users
           docker exec infra_web_1 python manage.py makemigrations reviews
           docker exec infra_web_1 python manage.py migrate
-          docker exec infra_web_1 python manage.py collectstatic
+          docker exec infra_web_1 python manage.py collectstatic --noinput
