@@ -13,14 +13,14 @@ class Command(BaseCommand):
             email = os.getenv('DJANGO_SUPERUSER_EMAIL')
             password = os.getenv('DJANGO_SUPERUSER_PASSWORD')
             admin = User.objects.create_superuser(
-                email=email, 
-                username=username, 
+                email=email,
+                username=username,
                 password=password
-                )
+            )
             admin.is_active = True
             admin.is_admin = True
             admin.save()
         else:
             print(
                 'Admin accounts can only be initialized if no Users exist'
-                )
+            )
