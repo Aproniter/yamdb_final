@@ -55,6 +55,10 @@ jobs:
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
+      env:
+          DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
+          DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
+          DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
@@ -68,5 +72,4 @@ jobs:
           docker exec infra_web_1 python manage.py makemigrations users
           docker exec infra_web_1 python manage.py makemigrations reviews
           docker exec infra_web_1 python manage.py migrate
-          docker exec infra_web_1 python manage.py createsuperuserwithpassword --username ${{ secrets.DJANGO_SUPERUSER_USERNAME }} --password ${{ secrets.DJANGO_SUPERUSER_PASSWORD }} --email ${{ secrets.DJANGO_SUPERUSER_EMAIL }} --preserve
           docker exec infra_web_1 python manage.py collectstatic
