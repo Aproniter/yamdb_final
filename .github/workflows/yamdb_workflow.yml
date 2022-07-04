@@ -69,6 +69,7 @@ jobs:
           git pull
           cd infra
           docker stop $(docker ps -a -q)
+          docker rmi $(docker images -a -q)
           docker-compose up -d --build
           docker exec infra_web python manage.py makemigrations users --noinput
           docker exec infra_web python manage.py makemigrations reviews --noinput
