@@ -5,6 +5,8 @@ yamdb_final
 
 <h1 align="center">YaMDB API</h1>
 
+<h3 align="center">130.193.55.233</h3>
+
 ### Технологии
 Python 3.7
 Django 2.2.16
